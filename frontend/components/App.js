@@ -1,18 +1,22 @@
 import React from 'react'
+import Todo from './Todo'
+import Form from './Form'
+import Todolist from './TodoList'
 
-export default class App extends React.Component {
+
+class App extends React.Component {
 
   constructor() {
     super()
     this.state = {
       todos: [
         {
-          name: 'Organize Garage',
+          task: 'Organize Garage',
           id: 1528817077286, // could look different, you could use a timestamp to generate it
-          completed: false
+          completed: true
         },
         {
-          name: 'Bake Cookies',
+          task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
         }
@@ -20,21 +24,19 @@ export default class App extends React.Component {
     }
   }
   render() {
+    const { todos } = this.state
+
     return (
       <div>
         <h1>Todos</h1>
-        <ul>
-          <li>Walk the dog</li>
-          <li>Take out trash</li>
-        </ul>
 
-        <form>
-          <input/>
-             <button>Add</button>
-           </form>
+        <Todolist todos = {todos}/>
+        <Form />
 
            <button>Clear</button>
       </div>
     )
   }
 }
+
+export default App
